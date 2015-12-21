@@ -15,7 +15,7 @@
 
 using namespace std;
 
-int svcNum;
+int svcNum; // Service number var
 int qtyNum;
 
 int main() {
@@ -35,8 +35,8 @@ int main() {
 	// Service Detection System
 	logo();
 	
-	cout << "Available Stream Servers\n";
-	cout << "YouTube, Twitch\n";
+	cout << "Available Stream Services\n";
+	cout << "[1] Twitch, [2] YouTube\n";
 	
 	svc();
 	if (svcNum == 1){
@@ -58,43 +58,52 @@ int main() {
 	
 	getline(cin, channel);
 	system("cls");
+	
 	// Quality Detection System
-	logo();
-
-	cout << "Introduce la calidad a la que quieres ver el stream:\n>";
-	cout << "Source , High , Medium , Low , Audio\n\n";
 	
 	if (svcNum == 1){
 		twitch();
+		if (qtyNum == 11){
+			quality = "source";
+		}
+		else if (qtyNum == 12) {
+			quality = "high";
+		}
+		else if (qtyNum == 13) {
+			quality = "medium";
+		}
+		else if (qtyNum == 14) {
+			quality = "low";
+		}
+		else if (qtyNum == 15) {
+			quality = "audio";
+		}
+		else {
+			ex2();
+		}
 	}
 	else if (svcNum == 2){
 		youtube();
+		
+		if (qtyNum == 21) {		// 2x YouTube
+			quality = "best";
+		}
+		else if (qtyNum == 22) {
+			quality = "360p";
+		}
+		else if (qtyNum == 23) {
+			quality = "240p";
+		}
+		else if (qtyNum == 24) {
+			quality = "audio_mp4";
+		}	
+		else{
+			ex2();
+		}
 	}
 	else{
 		ex1();
 		return 0;
-	}
-	
-	if (qtyNum == 11){     // 1x Twitch
-		quality = "best";
-	}
-	else if (qtyNum == 12) {
-		quality = "medium";
-	}
-	else if (qtyNum == 21) {		// 2x YouTube
-		quality = "best";
-	}
-	else if (qtyNum == 22) {
-		quality = "360p";
-	}
-	else if (qtyNum == 23) {
-		quality = "240p";
-	}
-	else if (qtyNum == 24) {
-		quality = "audio_mp4";
-	}	
-	else{
-		quality = "best";
 	}
 	
 

@@ -1,4 +1,5 @@
 #include "Services.h"
+#include "Logo.h"
 #include<string>
 #include<sstream>
 
@@ -18,10 +19,10 @@ void svc(){
 	else if (in_web == "twitch") {
 		svcNum = 1;
 	}
-	else if (in_web == "twitchtv") {
+	else if (in_web == "TWITCH") {
 		svcNum = 1;
 	}
-	else if (in_web == "TWITCH") {
+	else if (in_web == "1") {
 		svcNum = 1;
 	}
 	else if (in_web == "YouTube") {
@@ -36,12 +37,21 @@ void svc(){
 	else if (in_web == "YOUTUBE") {
 		svcNum = 2;
 	}
+	else if (in_web == "2") {
+		svcNum = 2;
+	}
 	else { //Exception #1
 		return;
 	}
 }
 
 void twitch(){
+	
+	logo();
+	
+	cout << "Twitch Qualities: Source, High, Medium, Low, Audio.\n";
+	cout << "Select desired quality:\n\n>";
+	
 	string in_quality = "";
 	
 	getline(cin, in_quality);
@@ -52,25 +62,49 @@ void twitch(){
 	else if (in_quality == "source") {
 		qtyNum = 11;
 	}
-	else if (in_quality == "Medium") {
+	else if (in_quality == "High") {
 		qtyNum = 12;
 	}
-	else if (in_quality == "medium") {
+	else if (in_quality == "high") {
 		qtyNum = 12;
+	}
+	else if (in_quality == "Medium") {
+		qtyNum = 13;
+	}
+	else if (in_quality == "medium") {
+		qtyNum = 13;
+	}
+	else if (in_quality == "Low") {
+		qtyNum = 14;
+	}
+	else if (in_quality == "low") {
+		qtyNum = 14;
+	}
+	else if (in_quality == "Audio") {
+		qtyNum = 15;
+	}
+	else if (in_quality == "audio") {
+		qtyNum = 15;
 	}
 	else {
 		return;
 	}
 }
 void youtube(){
+	
+	logo();
+	
+	cout << "YouTube Qualities: High (720p), Medium (360p), Low (240p), Audio.\n";
+	cout << "Select desired quality:\n\n>";
+	
 	string in_quality = "";
 	
-getline(cin, in_quality);
+	getline(cin, in_quality);
 
-	if (in_quality == "Source") {
+	if (in_quality == "High") {
 		qtyNum = 21;
 	}
-	else if (in_quality == "source") {
+	else if (in_quality == "high") {
 		qtyNum = 21;
 	}
 	else if (in_quality == "Medium") {

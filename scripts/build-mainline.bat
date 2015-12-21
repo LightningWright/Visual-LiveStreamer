@@ -9,8 +9,8 @@ cd ..
 cd objects
 copy *.o %git%\Visual-LiveStreamer\compile
 cd %git%\Visual-LiveStreamer\compile
-g++ *.cpp *.o -o app.exe
-copy app.exe %git%\Visual-LiveStreamer\bin
+g++ *.cpp *.o -o vls.exe
+copy vls.exe %git%\Visual-LiveStreamer\bin
 cd %git%\Visual-LiveStreamer\bin
 rd /s /q %git%\Visual-LiveStreamer\compile
-start app.exe
+start vls.exe

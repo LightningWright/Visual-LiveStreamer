@@ -6,5 +6,6 @@
 using namespace std;
 
 void ex1();
+void ex2();
 
 #endif
