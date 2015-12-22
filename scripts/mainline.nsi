@@ -3,10 +3,14 @@
 !include "LogicLib.nsh"
 !include "MUI2.nsh"
 
-!define PRODUCT_NAME "Visual LiveStreamer C++ Mainline"
-!define PRODUCT_VERSION "0.4"
-!define SETUP_NAME "mainline-0.4.exe"
+!define PRODUCT_NAME "Visual LiveStreamer C++"
+!define PRODUCT_VERSION "0.5"
+!define SETUP_NAME "stable-0.5.exe"
 !define COMPILE_DIR "C:\Users\Victor\Documents\GitHub\Visual-LiveStreamer"
+!define MUI_FINISHPAGE_SHOWREADME ""
+!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
+!define MUI_FINISHPAGE_SHOWREADME_TEXT "Create Desktop Shortcut"
+!define MUI_FINISHPAGE_SHOWREADME_FUNCTION ShortcutAc
 
 OutFile ${SETUP_NAME}
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
@@ -110,3 +114,8 @@ SectionEnd
   !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
     !insertmacro MUI_DESCRIPTION_TEXT ${SecLS} $(DESC_SecLS)
   !insertmacro MUI_FUNCTION_DESCRIPTION_END
+  
+ ;-----------------------------
+ Function ShortcutAc
+CreateShortcut "$desktop\Visual LiveStreamer C++.lnk" "$instdir\vls.exe"
+FunctionEnd

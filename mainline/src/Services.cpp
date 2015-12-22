@@ -6,128 +6,119 @@
 using namespace std;
 
 extern int svcNum;
-extern int qtyNum;
-
-void svc(){
-	string in_web = ""; // Input Video Quality
-	
-	getline(cin, in_web);
-
-	if (in_web == "Twitch") {
-		svcNum = 1;
-	}
-	else if (in_web == "twitch") {
-		svcNum = 1;
-	}
-	else if (in_web == "TWITCH") {
-		svcNum = 1;
-	}
-	else if (in_web == "1") {
-		svcNum = 1;
-	}
-	else if (in_web == "YouTube") {
-		svcNum = 2;
-	}
-	else if (in_web == "youtube") {
-		svcNum = 2;
-	}
-	else if (in_web == "Youtube") {
-		svcNum = 2;
-	}
-	else if (in_web == "YOUTUBE") {
-		svcNum = 2;
-	}
-	else if (in_web == "2") {
-		svcNum = 2;
-	}
-	else { //Exception #1
-		return;
-	}
-}
 
 void twitch(){
+	system("cls");
 	
+	//String Declaration
+	string in_qlty = "";
+	string quality = "";
+	string channel = "";
+	
+	//Channel
 	logo();
+	cout << "Type the channel name:\n>";
+	getline(cin, channel);
+	system("cls");
 	
+	//Quality
+	logo();	
 	cout << "Twitch Qualities: Source, High, Medium, Low, Audio.\n";
 	cout << "Select desired quality:\n\n>";
 	
-	string in_quality = "";
+	getline(cin, in_qlty);
 	
-	getline(cin, in_quality);
-	
-	if (in_quality == "Source") {
-		qtyNum = 11;
+	if (in_qlty == "Source") {
+		quality = "source";
 	}
-	else if (in_quality == "source") {
-		qtyNum = 11;
+	else if (in_qlty == "source") {
+		quality = "source";
 	}
-	else if (in_quality == "High") {
-		qtyNum = 12;
+	else if (in_qlty == "High") {
+		quality = "high";
 	}
-	else if (in_quality == "high") {
-		qtyNum = 12;
+	else if (in_qlty == "high") {
+		quality = "high";
 	}
-	else if (in_quality == "Medium") {
-		qtyNum = 13;
+	else if (in_qlty == "Medium") {
+		quality = "medium";
 	}
-	else if (in_quality == "medium") {
-		qtyNum = 13;
+	else if (in_qlty == "medium") {
+		quality = "medium";
 	}
-	else if (in_quality == "Low") {
-		qtyNum = 14;
+	else if (in_qlty == "Low") {
+		quality = "low";
 	}
-	else if (in_quality == "low") {
-		qtyNum = 14;
+	else if (in_qlty == "low") {
+		quality = "low";
 	}
-	else if (in_quality == "Audio") {
-		qtyNum = 15;
+	else if (in_qlty == "Audio") {
+		quality = "audio";
 	}
-	else if (in_quality == "audio") {
-		qtyNum = 15;
+	else if (in_qlty == "audio") {
+		quality = "audio";
 	}
 	else {
 		return;
 	}
+	
+	system("color FA");
+	system(("bin\\livestreamer-core.exe --hds-live-edge 1 http://twitch.tv/"+ channel + " " + quality +" --config ./cfg/config.cfg").c_str());
+	system("color F0");
+	return;
 }
+
 void youtube(){
+	//Clean
+	system("cls");
 	
-	logo();
+	//String Declaration
+	string in_qlty = "";
+	string quality = "";
+	string video = "";
 	
+	logo(); 
+	cout << "Type the video link <watch?v=xyz> :\n>";
+	getline(cin, video);
+	system("cls");
+	
+	logo();	//Decoration
 	cout << "YouTube Qualities: High (720p), Medium (360p), Low (240p), Audio.\n";
 	cout << "Select desired quality:\n\n>";
 	
-	string in_quality = "";
-	
-	getline(cin, in_quality);
+	getline(cin, in_qlty);
 
-	if (in_quality == "High") {
-		qtyNum = 21;
+	if (in_qlty == "High") {
+		quality = "best";
 	}
-	else if (in_quality == "high") {
-		qtyNum = 21;
+	else if (in_qlty == "high") {
+		quality = "best";
 	}
-	else if (in_quality == "Medium") {
-		qtyNum = 22;
+	else if (in_qlty == "Medium") {
+		quality = "360p";
 	}
-	else if (in_quality == "medium") {
-		qtyNum = 22;
+	else if (in_qlty == "medium") {
+		quality = "360p";
 	}
-	else if (in_quality == "Low") {
-		qtyNum = 23;
+	else if (in_qlty == "Low") {
+		quality = "worst";
 	}
-	else if (in_quality == "low") {
-		qtyNum = 23;
+	else if (in_qlty == "low") {
+		quality = "worst";
 	}
-	else if (in_quality == "Audio") {
-		qtyNum = 24;
+	else if (in_qlty == "Audio") {
+		quality = "audio_mp4";
 	}
-	else if (in_quality == "audio") {
-		qtyNum = 24;
+	else if (in_qlty == "audio") {
+		quality = "audio_mp4";
 	}
 	else {
 		return;
 	}
 	
+	system("color FA");
+	system(("bin\\livestreamer-core.exe --hds-live-edge 1 http://youtube.com/"+ video + " " + quality +" --config ./cfg/config.cfg").c_str());
+	system("color F0");
+	return;
 }
 
