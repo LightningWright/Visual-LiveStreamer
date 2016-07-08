@@ -117,7 +117,6 @@
   <ItemGroup>
     <Content Include="icon256.ico" />
     <Content Include="icon32.ico" />
-    <Content Include="img256.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
