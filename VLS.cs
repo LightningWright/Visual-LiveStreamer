@@ -24,7 +24,7 @@ namespace VLSSharp
         //       VARS
         string url;
         public static int svcHandler;
-        public static int qltyHandler;
+        public static string qlty;
         public static bool debug = false;
 
         public void Form1_Load(object sender, EventArgs e)
@@ -41,14 +41,36 @@ namespace VLSSharp
 
         private void svc_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selIndex = svc_comboBox.SelectedIndex;
-            svcHandler = selIndex;
+            int svcIndex = svc_comboBox.SelectedIndex;
+            svcHandler = svcIndex;
+            if (svcIndex == 0) {
+                qlty_comboBox.Items.Clear();
+                qlty_comboBox.Items.Insert(0,"best");
+                qlty_comboBox.Items.Insert(1, "medium");
+                qlty_comboBox.Items.Insert(2, "worst");
+                qlty_comboBox.Items.Insert(3, "audio");
+                
+            }
+            else if (svcIndex == 1) {
+                qlty_comboBox.Items.Clear();
+                qlty_comboBox.Items.Insert(0, "best");
+                qlty_comboBox.Items.Insert(1, "360p");
+                qlty_comboBox.Items.Insert(2, "worst");
+                qlty_comboBox.Items.Insert(3, "audio_webm");
+            }
+            else if (svcIndex == 2) {
+                qlty_comboBox.Items.Clear();
+                qlty_comboBox.Items.Insert(0, "best");
+                qlty_comboBox.Items.Insert(1, "mobile_360p");
+                qlty_comboBox.Items.Insert(2, "worst");
+            }
+            else { qlty_comboBox.Items.Clear(); return; }
         }
 
         private void qlty_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selIndex = qlty_comboBox.SelectedIndex;
-            qltyHandler = selIndex;
+            string qltyItem = qlty_comboBox.SelectedItem.ToString();
+            qlty = qltyItem;
         }
 
         private void urlBox_TextChanged(object sender, EventArgs e)
@@ -58,27 +80,27 @@ namespace VLSSharp
 
         private void btn_url_Click(object sender, EventArgs e)
         {
-            launchVLS(url,qltyHandler);
+            launchVLS(url,qlty);
         }
 
             //                  LANZAR ARGS
-        private void launchVLS(string url, int qltyHandler)
+        private void launchVLS(string url, string qlty)
         {
             if (svcHandler == 0)
             {
-                Services.Twitch(url,qltyHandler);
+                Services.Twitch(url,qlty);
                 string debug = "Lanzando: Service #" + svcHandler;
                 Console.Out.WriteLine(debug);
             }
             else if (svcHandler == 1)
             {
-                Services.YouTube(url,qltyHandler);
+                Services.YouTube(url,qlty);
                 string debug = "Lanzando: Service #" + svcHandler;
                 Console.Out.WriteLine(debug);
             }
             else if (svcHandler == 2)
             {
-                Services.uStream(url,qltyHandler);
+                Services.uStream(url,qlty);
                 string debug = "Lanzando: Service #" + svcHandler;
                 Console.Out.WriteLine(debug);
                 

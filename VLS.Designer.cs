@@ -111,10 +111,6 @@
             // qlty_comboBox
             // 
             this.qlty_comboBox.FormattingEnabled = true;
-            this.qlty_comboBox.Items.AddRange(new object[] {
-            resources.GetString("qlty_comboBox.Items"),
-            resources.GetString("qlty_comboBox.Items1"),
-            resources.GetString("qlty_comboBox.Items2")});
             resources.ApplyResources(this.qlty_comboBox, "qlty_comboBox");
             this.qlty_comboBox.Name = "qlty_comboBox";
             this.qlty_comboBox.SelectedIndexChanged += new System.EventHandler(this.qlty_comboBox_SelectedIndexChanged);

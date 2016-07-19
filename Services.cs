@@ -16,12 +16,8 @@ namespace VLSSharp
 
         }
 
-        public static void Twitch(string url, int qltyHandler) {
-
-            string qlty = "";
-
-            if (qltyHandler == 0) { qlty = "best"; } else if (qltyHandler == 1) { qlty = "worst"; } else if (qltyHandler == 2) { qlty = "audio"; }
-
+        public static void Twitch(string url, string qlty) {
+            //MessageBox.Show("--hds-live-edge 1 http://twitch.tv/" + url + " " + qlty + " --config ./cfg/config.cfg");
             Process twitchprocess = new Process();
             twitchprocess.StartInfo.FileName = "bin\\livestreamer-core.exe";
             twitchprocess.StartInfo.Arguments = "--hds-live-edge 1 http://twitch.tv/" + url + " " + qlty + " --config ./cfg/config.cfg";
@@ -33,17 +29,12 @@ namespace VLSSharp
                 twitchprocess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             }
             twitchprocess.Start();
-            //twitchprocess.WaitForExit();
             twitchprocess.Close();
 
         }
 
-        public static void YouTube(string url, int qltyHandler) {
-
-            string qlty = "";
-
-            if (qltyHandler == 0) { qlty = "best"; } else if (qltyHandler == 1) { qlty = "worst"; } else if (qltyHandler == 2) { qlty = "audio_webm"; }
-
+        public static void YouTube(string url, string qlty) {
+            //MessageBox.Show("--hds-live-edge 1 http://youtube.com/" + url + " " + qlty + " --config ./cfg/config.cfg");
             Process ytprocess = new Process();
             ytprocess.StartInfo.FileName = "bin\\livestreamer-core.exe";
             ytprocess.StartInfo.Arguments = "--hds-live-edge 1 http://youtube.com/" + url + " "+ qlty + " --config ./cfg/config.cfg";
@@ -54,18 +45,11 @@ namespace VLSSharp
                 ytprocess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             }
             ytprocess.Start();
-            //twitchprocess.WaitForExit();
             ytprocess.Close();
         }
 
-        public static void uStream(string url, int qltyHandler) {
-
-            string qlty = "";
-
-            if (qltyHandler == 0) { qlty = "best"; }
-            else if (qltyHandler == 1) { qlty = "worst"; }
-            else if (qltyHandler == 2) { qlty = "mobile_480p"; MessageBox.Show("uStream can't serve only audio, using 480p video quality", "Warning", MessageBoxButtons.OK,MessageBoxIcon.Exclamation); }
-
+        public static void uStream(string url, string qlty) {
+            //MessageBox.Show("--hds-live-edge 1 http://www.ustream.tv/" + url + " " + qlty + " --config ./cfg/config.cfg");
             Process ustreamprocess = new Process();
             ustreamprocess.StartInfo.FileName = "bin\\livestreamer-core.exe";
             ustreamprocess.StartInfo.Arguments = "--hds-live-edge 1 http://www.ustream.tv/" + url + " " + qlty + " --config ./cfg/config.cfg";
@@ -76,7 +60,6 @@ namespace VLSSharp
                 ustreamprocess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             }
             ustreamprocess.Start();
-            //twitchprocess.WaitForExit();
             ustreamprocess.Close();
         }
     }

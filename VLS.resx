@@ -254,15 +254,6 @@
   <data name="&gt;&gt;svc_comboBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="qlty_comboBox.Items" xml:space="preserve">
-    <value>Best Quality</value>
-  </data>
-  <data name="qlty_comboBox.Items1" xml:space="preserve">
-    <value>Worst Quality</value>
-  </data>
-  <data name="qlty_comboBox.Items2" xml:space="preserve">
-    <value>Only Audio</value>
-  </data>
   <data name="qlty_comboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>150, 74</value>
   </data>
