@@ -23,7 +23,8 @@ namespace VLSSharp
         }
         //       VARS
         string url;
-        public static int serviceHandler;
+        public static int svcHandler;
+        public static int qltyHandler;
         public static bool debug = false;
 
         public void Form1_Load(object sender, EventArgs e)
@@ -36,10 +37,18 @@ namespace VLSSharp
          System.Threading.Thread.Sleep(100);
          float cpuval = cpuCounter.NextValue();
          Console.Out.WriteLine(cpuval);*/
-         
-        private void btn_url_Click(object sender, EventArgs e)
+        //              PROCESAR SELECCION (al cambiar de opcion)
+
+        private void svc_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            launchVLS(url);
+            int selIndex = svc_comboBox.SelectedIndex;
+            svcHandler = selIndex;
+        }
+
+        private void qlty_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selIndex = qlty_comboBox.SelectedIndex;
+            qltyHandler = selIndex;
         }
 
         private void urlBox_TextChanged(object sender, EventArgs e)
@@ -47,34 +56,32 @@ namespace VLSSharp
             url = urlBox.Text;
         }
 
-        private void twitch_rbtn_CheckedChanged(object sender, EventArgs e)
-        { if (twitch_rbtn.Checked == true) { serviceHandler = 1; } }
-
-        private void yt_rbtn_CheckedChanged(object sender, EventArgs e)
-        { if (yt_rbtn.Checked == true) { serviceHandler = 2; } }
-
-        private void ustream_rbtn_CheckedChanged(object sender, EventArgs e)
-        { if (ustream_rbtn.Checked == true) { serviceHandler = 3; } }
-
-        private void launchVLS(string url)
+        private void btn_url_Click(object sender, EventArgs e)
         {
-            if (serviceHandler == 1)
+            launchVLS(url,qltyHandler);
+        }
+
+            //                  LANZAR ARGS
+        private void launchVLS(string url, int qltyHandler)
+        {
+            if (svcHandler == 0)
             {
-                Services.Twitch(url);
-                string debug = "Lanzando: Service #" + serviceHandler;
+                Services.Twitch(url,qltyHandler);
+                string debug = "Lanzando: Service #" + svcHandler;
                 Console.Out.WriteLine(debug);
             }
-            else if (serviceHandler == 2)
+            else if (svcHandler == 1)
             {
-                Services.YouTube(url);
-                string debug = "Lanzando: Service #" + serviceHandler;
+                Services.YouTube(url,qltyHandler);
+                string debug = "Lanzando: Service #" + svcHandler;
                 Console.Out.WriteLine(debug);
             }
-            else if (serviceHandler == 3)
+            else if (svcHandler == 2)
             {
-                Services.uStream(url);
-                string debug = "Lanzando: Service #" + serviceHandler;
+                Services.uStream(url,qltyHandler);
+                string debug = "Lanzando: Service #" + svcHandler;
                 Console.Out.WriteLine(debug);
+                
             }
 
             else { return; }
@@ -118,11 +125,6 @@ namespace VLSSharp
                 debug = true;
                 activateToolStripMenuItem.CheckState = CheckState.Checked;
             }
-        }
-
-        private void programToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

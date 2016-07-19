@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_url.Location" type="System.Drawing.Point, System.Drawing">
-    <value>255, 60</value>
+    <value>255, 72</value>
   </data>
   <data name="btn_url.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_url.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="urlBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 27</value>
@@ -162,88 +162,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;urlBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="twitch_rbtn.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="twitch_rbtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 64</value>
-  </data>
-  <data name="twitch_rbtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 17</value>
-  </data>
-  <data name="twitch_rbtn.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="twitch_rbtn.Text" xml:space="preserve">
-    <value>Twitch</value>
-  </data>
-  <data name="&gt;&gt;twitch_rbtn.Name" xml:space="preserve">
-    <value>twitch_rbtn</value>
-  </data>
-  <data name="&gt;&gt;twitch_rbtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;twitch_rbtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;twitch_rbtn.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="yt_rbtn.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="yt_rbtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 64</value>
-  </data>
-  <data name="yt_rbtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 17</value>
-  </data>
-  <data name="yt_rbtn.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="yt_rbtn.Text" xml:space="preserve">
-    <value>YouTube</value>
-  </data>
-  <data name="&gt;&gt;yt_rbtn.Name" xml:space="preserve">
-    <value>yt_rbtn</value>
-  </data>
-  <data name="&gt;&gt;yt_rbtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;yt_rbtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;yt_rbtn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ustream_rbtn.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ustream_rbtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 63</value>
-  </data>
-  <data name="ustream_rbtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 17</value>
-  </data>
-  <data name="ustream_rbtn.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="ustream_rbtn.Text" xml:space="preserve">
-    <value>uStream</value>
-  </data>
-  <data name="&gt;&gt;ustream_rbtn.Name" xml:space="preserve">
-    <value>ustream_rbtn</value>
-  </data>
-  <data name="&gt;&gt;ustream_rbtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ustream_rbtn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ustream_rbtn.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="mainmenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -300,7 +219,73 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mainmenu.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
+  </data>
+  <data name="svc_comboBox.Items" xml:space="preserve">
+    <value>Twitch</value>
+  </data>
+  <data name="svc_comboBox.Items1" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
+  <data name="svc_comboBox.Items2" xml:space="preserve">
+    <value>uStream</value>
+  </data>
+  <data name="svc_comboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 74</value>
+  </data>
+  <data name="svc_comboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 21</value>
+  </data>
+  <data name="svc_comboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="svc_comboBox.Text" xml:space="preserve">
+    <value>Choose Service</value>
+  </data>
+  <data name="&gt;&gt;svc_comboBox.Name" xml:space="preserve">
+    <value>svc_comboBox</value>
+  </data>
+  <data name="&gt;&gt;svc_comboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;svc_comboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;svc_comboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="qlty_comboBox.Items" xml:space="preserve">
+    <value>Best Quality</value>
+  </data>
+  <data name="qlty_comboBox.Items1" xml:space="preserve">
+    <value>Worst Quality</value>
+  </data>
+  <data name="qlty_comboBox.Items2" xml:space="preserve">
+    <value>Only Audio</value>
+  </data>
+  <data name="qlty_comboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 74</value>
+  </data>
+  <data name="qlty_comboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 21</value>
+  </data>
+  <data name="qlty_comboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="qlty_comboBox.Text" xml:space="preserve">
+    <value>Choose Quality</value>
+  </data>
+  <data name="&gt;&gt;qlty_comboBox.Name" xml:space="preserve">
+    <value>qlty_comboBox</value>
+  </data>
+  <data name="&gt;&gt;qlty_comboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qlty_comboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;qlty_comboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -309,7 +294,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>345, 154</value>
+    <value>345, 129</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

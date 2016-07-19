@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 
 
 namespace VLSSharp
@@ -15,11 +16,15 @@ namespace VLSSharp
 
         }
 
-        public static void Twitch(string url) {
+        public static void Twitch(string url, int qltyHandler) {
+
+            string qlty = "";
+
+            if (qltyHandler == 0) { qlty = "best"; } else if (qltyHandler == 1) { qlty = "worst"; } else if (qltyHandler == 2) { qlty = "audio"; }
 
             Process twitchprocess = new Process();
             twitchprocess.StartInfo.FileName = "bin\\livestreamer-core.exe";
-            twitchprocess.StartInfo.Arguments = "--hds-live-edge 1 http://twitch.tv/" + url + " best" + " --config ./cfg/config.cfg";
+            twitchprocess.StartInfo.Arguments = "--hds-live-edge 1 http://twitch.tv/" + url + " " + qlty + " --config ./cfg/config.cfg";
             twitchprocess.StartInfo.UseShellExecute = false;
             if (!VLS.debug)
             {
@@ -33,12 +38,15 @@ namespace VLSSharp
 
         }
 
-        public static void YouTube(string url)
-        {
+        public static void YouTube(string url, int qltyHandler) {
+
+            string qlty = "";
+
+            if (qltyHandler == 0) { qlty = "best"; } else if (qltyHandler == 1) { qlty = "worst"; } else if (qltyHandler == 2) { qlty = "audio_webm"; }
 
             Process ytprocess = new Process();
             ytprocess.StartInfo.FileName = "bin\\livestreamer-core.exe";
-            ytprocess.StartInfo.Arguments = "--hds-live-edge 1 http://youtube.com/" + url + " best" + " --config ./cfg/config.cfg";
+            ytprocess.StartInfo.Arguments = "--hds-live-edge 1 http://youtube.com/" + url + " "+ qlty + " --config ./cfg/config.cfg";
             ytprocess.StartInfo.UseShellExecute = false;
             if (!VLS.debug){
                 ytprocess.StartInfo.RedirectStandardOutput = true;
@@ -50,11 +58,17 @@ namespace VLSSharp
             ytprocess.Close();
         }
 
-        public static void uStream(string url) {
+        public static void uStream(string url, int qltyHandler) {
+
+            string qlty = "";
+
+            if (qltyHandler == 0) { qlty = "best"; }
+            else if (qltyHandler == 1) { qlty = "worst"; }
+            else if (qltyHandler == 2) { qlty = "mobile_480p"; MessageBox.Show("uStream can't serve only audio, using 480p video quality", "Warning", MessageBoxButtons.OK,MessageBoxIcon.Exclamation); }
 
             Process ustreamprocess = new Process();
             ustreamprocess.StartInfo.FileName = "bin\\livestreamer-core.exe";
-            ustreamprocess.StartInfo.Arguments = "--hds-live-edge 1 http://www.ustream.tv/" + url + " best" + " --config ./cfg/config.cfg";
+            ustreamprocess.StartInfo.Arguments = "--hds-live-edge 1 http://www.ustream.tv/" + url + " " + qlty + " --config ./cfg/config.cfg";
             ustreamprocess.StartInfo.UseShellExecute = false;
             if (!VLS.debug) {
                 ustreamprocess.StartInfo.RedirectStandardOutput = false;

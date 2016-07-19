@@ -31,15 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VLS));
             this.btn_url = new System.Windows.Forms.Button();
             this.urlBox = new System.Windows.Forms.TextBox();
-            this.twitch_rbtn = new System.Windows.Forms.RadioButton();
-            this.yt_rbtn = new System.Windows.Forms.RadioButton();
-            this.ustream_rbtn = new System.Windows.Forms.RadioButton();
             this.mainmenu = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.svc_comboBox = new System.Windows.Forms.ComboBox();
+            this.qlty_comboBox = new System.Windows.Forms.ComboBox();
             this.mainmenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,30 +55,6 @@
             this.urlBox.Name = "urlBox";
             this.urlBox.TextChanged += new System.EventHandler(this.urlBox_TextChanged);
             // 
-            // twitch_rbtn
-            // 
-            resources.ApplyResources(this.twitch_rbtn, "twitch_rbtn");
-            this.twitch_rbtn.Name = "twitch_rbtn";
-            this.twitch_rbtn.TabStop = true;
-            this.twitch_rbtn.UseVisualStyleBackColor = true;
-            this.twitch_rbtn.CheckedChanged += new System.EventHandler(this.twitch_rbtn_CheckedChanged);
-            // 
-            // yt_rbtn
-            // 
-            resources.ApplyResources(this.yt_rbtn, "yt_rbtn");
-            this.yt_rbtn.Name = "yt_rbtn";
-            this.yt_rbtn.TabStop = true;
-            this.yt_rbtn.UseVisualStyleBackColor = true;
-            this.yt_rbtn.CheckedChanged += new System.EventHandler(this.yt_rbtn_CheckedChanged);
-            // 
-            // ustream_rbtn
-            // 
-            resources.ApplyResources(this.ustream_rbtn, "ustream_rbtn");
-            this.ustream_rbtn.Name = "ustream_rbtn";
-            this.ustream_rbtn.TabStop = true;
-            this.ustream_rbtn.UseVisualStyleBackColor = true;
-            this.ustream_rbtn.CheckedChanged += new System.EventHandler(this.ustream_rbtn_CheckedChanged);
-            // 
             // mainmenu
             // 
             this.mainmenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -95,7 +70,6 @@
             this.exitToolStripMenuItem});
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
             resources.ApplyResources(this.programToolStripMenuItem, "programToolStripMenuItem");
-            this.programToolStripMenuItem.Click += new System.EventHandler(this.programToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -122,13 +96,35 @@
             resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // svc_comboBox
+            // 
+            this.svc_comboBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.svc_comboBox.FormattingEnabled = true;
+            this.svc_comboBox.Items.AddRange(new object[] {
+            resources.GetString("svc_comboBox.Items"),
+            resources.GetString("svc_comboBox.Items1"),
+            resources.GetString("svc_comboBox.Items2")});
+            resources.ApplyResources(this.svc_comboBox, "svc_comboBox");
+            this.svc_comboBox.Name = "svc_comboBox";
+            this.svc_comboBox.SelectedIndexChanged += new System.EventHandler(this.svc_comboBox_SelectedIndexChanged);
+            // 
+            // qlty_comboBox
+            // 
+            this.qlty_comboBox.FormattingEnabled = true;
+            this.qlty_comboBox.Items.AddRange(new object[] {
+            resources.GetString("qlty_comboBox.Items"),
+            resources.GetString("qlty_comboBox.Items1"),
+            resources.GetString("qlty_comboBox.Items2")});
+            resources.ApplyResources(this.qlty_comboBox, "qlty_comboBox");
+            this.qlty_comboBox.Name = "qlty_comboBox";
+            this.qlty_comboBox.SelectedIndexChanged += new System.EventHandler(this.qlty_comboBox_SelectedIndexChanged);
+            // 
             // VLS
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ustream_rbtn);
-            this.Controls.Add(this.yt_rbtn);
-            this.Controls.Add(this.twitch_rbtn);
+            this.Controls.Add(this.qlty_comboBox);
+            this.Controls.Add(this.svc_comboBox);
             this.Controls.Add(this.urlBox);
             this.Controls.Add(this.btn_url);
             this.Controls.Add(this.mainmenu);
@@ -147,15 +143,14 @@
 
         private System.Windows.Forms.Button btn_url;
         private System.Windows.Forms.TextBox urlBox;
-        private System.Windows.Forms.RadioButton twitch_rbtn;
-        private System.Windows.Forms.RadioButton yt_rbtn;
-        private System.Windows.Forms.RadioButton ustream_rbtn;
         private System.Windows.Forms.MenuStrip mainmenu;
         private System.Windows.Forms.ToolStripMenuItem programToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ComboBox svc_comboBox;
+        private System.Windows.Forms.ComboBox qlty_comboBox;
     }
 }
 
