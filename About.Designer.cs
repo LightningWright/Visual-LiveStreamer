@@ -52,6 +52,7 @@
             // 
             // about_img
             // 
+            this.about_img.Image = global::VLSSharp.Properties.Resources.img256;
             this.about_img.Location = new System.Drawing.Point(13, 13);
             this.about_img.Name = "about_img";
             this.about_img.Size = new System.Drawing.Size(78, 81);

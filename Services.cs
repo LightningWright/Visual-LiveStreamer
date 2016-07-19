@@ -30,7 +30,6 @@ namespace VLSSharp
             }
             twitchprocess.Start();
             twitchprocess.Close();
-
         }
 
         public static void YouTube(string url, string qlty) {
