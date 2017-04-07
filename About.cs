@@ -20,19 +20,24 @@ namespace VLSSharp
             about_img.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        private void aboutok_btn_Click(object sender, EventArgs e)
+        private void ok_btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void git_1_llbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/LightningWright");
+            Process.Start("https://github.com/LightningWright");
         }
 
         private void git_2_llbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/Chrippa");
+            Process.Start("https://github.com/Chrippa");
+        }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

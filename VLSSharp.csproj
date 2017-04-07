@@ -69,11 +69,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs">
+    <Compile Include="Channels.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="About.Designer.cs">
-      <DependentUpon>About.cs</DependentUpon>
+    <Compile Include="Channels.Designer.cs">
+      <DependentUpon>Channels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git.Designer.cs">
+      <DependentUpon>Git.cs</DependentUpon>
     </Compile>
     <Compile Include="CPU.cs" />
     <Compile Include="Services.cs" />
@@ -85,8 +91,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="About.resx">
-      <DependentUpon>About.cs</DependentUpon>
+    <EmbeddedResource Include="Channels.resx">
+      <DependentUpon>Channels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git.resx">
+      <DependentUpon>Git.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VLS.resx">
       <DependentUpon>VLS.cs</DependentUpon>

@@ -14,9 +14,16 @@ namespace VLSSharp
     {
         public Services() {
 
+
         }
 
+        public static string[] twitchQlist = { "best", "medium", "worst", "audio" };
+        public static string[] ytQlist = { "best", "360p", "worst", "audio_webm" };
+        public static string[] uStreamQlist = { "best", "mobile_360p", "worst"};
+
+
         public static void Twitch(string url, string qlty) {
+
             //MessageBox.Show("--hds-live-edge 1 http://twitch.tv/" + url + " " + qlty + " --config ./cfg/config.cfg");
             Process twitchprocess = new Process();
             twitchprocess.StartInfo.FileName = "bin\\livestreamer-core.exe";
@@ -30,6 +37,7 @@ namespace VLSSharp
             }
             twitchprocess.Start();
             twitchprocess.Close();
+
         }
 
         public static void YouTube(string url, string qlty) {

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
-            this.aboutok_btn = new System.Windows.Forms.Button();
+            this.ok_btn = new System.Windows.Forms.Button();
             this.about_img = new System.Windows.Forms.PictureBox();
             this.about_1_lbl = new System.Windows.Forms.Label();
             this.about_2_lbl = new System.Windows.Forms.Label();
@@ -40,15 +40,15 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // aboutok_btn
+            // ok_btn
             // 
-            this.aboutok_btn.Location = new System.Drawing.Point(93, 107);
-            this.aboutok_btn.Name = "aboutok_btn";
-            this.aboutok_btn.Size = new System.Drawing.Size(75, 23);
-            this.aboutok_btn.TabIndex = 0;
-            this.aboutok_btn.Text = "OK";
-            this.aboutok_btn.UseVisualStyleBackColor = true;
-            this.aboutok_btn.Click += new System.EventHandler(this.aboutok_btn_Click);
+            this.ok_btn.Location = new System.Drawing.Point(100, 106);
+            this.ok_btn.Name = "ok_btn";
+            this.ok_btn.Size = new System.Drawing.Size(75, 23);
+            this.ok_btn.TabIndex = 0;
+            this.ok_btn.Text = "OK";
+            this.ok_btn.UseVisualStyleBackColor = true;
+            this.ok_btn.Click += new System.EventHandler(this.ok_btn_Click);
             // 
             // about_img
             // 
@@ -62,7 +62,7 @@
             // about_1_lbl
             // 
             this.about_1_lbl.AutoSize = true;
-            this.about_1_lbl.Location = new System.Drawing.Point(22, 1);
+            this.about_1_lbl.Location = new System.Drawing.Point(20, 1);
             this.about_1_lbl.Name = "about_1_lbl";
             this.about_1_lbl.Size = new System.Drawing.Size(120, 13);
             this.about_1_lbl.TabIndex = 2;
@@ -71,7 +71,7 @@
             // about_2_lbl
             // 
             this.about_2_lbl.AutoSize = true;
-            this.about_2_lbl.Location = new System.Drawing.Point(3, 24);
+            this.about_2_lbl.Location = new System.Drawing.Point(0, 24);
             this.about_2_lbl.Name = "about_2_lbl";
             this.about_2_lbl.Size = new System.Drawing.Size(163, 13);
             this.about_2_lbl.TabIndex = 3;
@@ -107,24 +107,25 @@
             this.panel1.Controls.Add(this.about_2_lbl);
             this.panel1.Controls.Add(this.git_2_llbl);
             this.panel1.Controls.Add(this.about_1_lbl);
-            this.panel1.Location = new System.Drawing.Point(97, 12);
+            this.panel1.Location = new System.Drawing.Point(100, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 82);
+            this.panel1.Size = new System.Drawing.Size(162, 87);
             this.panel1.TabIndex = 8;
             // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 142);
+            this.ClientSize = new System.Drawing.Size(274, 141);
             this.Controls.Add(this.about_img);
-            this.Controls.Add(this.aboutok_btn);
+            this.Controls.Add(this.ok_btn);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "About";
             this.Text = "About - VLS C#";
+            this.Load += new System.EventHandler(this.About_Load);
             ((System.ComponentModel.ISupportInitialize)(this.about_img)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -134,7 +135,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button aboutok_btn;
+        private System.Windows.Forms.Button ok_btn;
         private System.Windows.Forms.PictureBox about_img;
         private System.Windows.Forms.Label about_1_lbl;
         private System.Windows.Forms.Label about_2_lbl;

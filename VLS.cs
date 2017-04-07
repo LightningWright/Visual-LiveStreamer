@@ -21,121 +21,78 @@ namespace VLSSharp
             StartPosition = FormStartPosition.CenterScreen;
 
         }
-        //       VARS
-        string url;
-        public static int svcHandler;
+
+        public static string url;
+        public static int svc;
         public static string qlty;
         public static bool debug = false;
 
-        public void Form1_Load(object sender, EventArgs e)
+        public void VLS_Load(object sender, EventArgs e)
         {
-
+            
         }
 
-        /* PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-         float useless = cpuCounter.NextValue();
-         System.Threading.Thread.Sleep(100);
-         float cpuval = cpuCounter.NextValue();
-         Console.Out.WriteLine(cpuval);*/
-        //              PROCESAR SELECCION (al cambiar de opcion)
-
+        //Service Combo Box Functions, changed to look like more elegant
         private void svc_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int svcIndex = svc_comboBox.SelectedIndex;
-            svcHandler = svcIndex;
-            if (svcIndex == 0) {
+            svc = svc_comboBox.SelectedIndex;
+            
+            if (svc == 0) {
                 qlty_comboBox.Items.Clear();
-                qlty_comboBox.Items.Insert(0,"best");
-                qlty_comboBox.Items.Insert(1, "medium");
-                qlty_comboBox.Items.Insert(2, "worst");
-                qlty_comboBox.Items.Insert(3, "audio");
-                
+                for (int i = 0; i < Services.twitchQlist.Length; i++) { qlty_comboBox.Items.Insert(i, Services.twitchQlist[i]); }
             }
-            else if (svcIndex == 1) {
+            else if (svc == 1) {
                 qlty_comboBox.Items.Clear();
-                qlty_comboBox.Items.Insert(0, "best");
-                qlty_comboBox.Items.Insert(1, "360p");
-                qlty_comboBox.Items.Insert(2, "worst");
-                qlty_comboBox.Items.Insert(3, "audio_webm");
+                for (int i = 0; i < Services.ytQlist.Length; i++) { qlty_comboBox.Items.Insert(i, Services.ytQlist[i]); }
             }
-            else if (svcIndex == 2) {
+            else if (svc == 2) {
                 qlty_comboBox.Items.Clear();
-                qlty_comboBox.Items.Insert(0, "best");
-                qlty_comboBox.Items.Insert(1, "mobile_360p");
-                qlty_comboBox.Items.Insert(2, "worst");
+                for (int i = 0; i < Services.uStreamQlist.Length; i++) { qlty_comboBox.Items.Insert(i, Services.uStreamQlist[i]); }
             }
             else { qlty_comboBox.Items.Clear(); return; }
         }
 
         private void qlty_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string qltyItem = qlty_comboBox.SelectedItem.ToString();
-            qlty = qltyItem;
+            qlty = qlty_comboBox.SelectedItem.ToString();
         }
 
-        private void urlBox_TextChanged(object sender, EventArgs e)
-        {
-            url = urlBox.Text;
-        }
+        private void urlBox_TextChanged(object sender, EventArgs e) { url = urlBox.Text; } //Update URL
 
-        private void btn_url_Click(object sender, EventArgs e)
-        {
-            launchVLS(url,qlty);
-        }
+        private void btn_url_Click(object sender, EventArgs e) { launchVLS(url,svc,qlty); } //Pass Url  Svc and Qlty -> selector
 
-            //                  LANZAR ARGS
-        private void launchVLS(string url, string qlty)
+        public void launchVLS(string url, int svc, string qlty)
         {
-            if (svcHandler == 0)
-            {
-                Services.Twitch(url,qlty);
-                string debug = "Lanzando: Service #" + svcHandler;
-                Console.Out.WriteLine(debug);
-            }
-            else if (svcHandler == 1)
-            {
-                Services.YouTube(url,qlty);
-                string debug = "Lanzando: Service #" + svcHandler;
-                Console.Out.WriteLine(debug);
-            }
-            else if (svcHandler == 2)
-            {
-                Services.uStream(url,qlty);
-                string debug = "Lanzando: Service #" + svcHandler;
-                Console.Out.WriteLine(debug);
-                
-            }
-
+            if (svc == 0) { Services.Twitch(url,qlty); }
+            else if (svc == 1) { Services.YouTube(url,qlty); }
+            else if (svc == 2) { Services.uStream(url,qlty); }
             else { return; }
-
-            /*Process VLSapp = new Process();
-            VLSapp.StartInfo.FileName = "bin\\livestreamer-core.exe";
-            VLSapp.StartInfo.Arguments = "--hds-live-edge 1 http://twitch.tv/" + url + " " + "best" + " --config ./cfg/config.cfg";
-            VLSapp.StartInfo.UseShellExecute = false;
-            //process.StartInfo.RedirectStandardOutput = true;
-            VLSapp.Start();
-
-            // Synchronously read the standard output of the spawned process. 
-            //StreamReader reader = process.StandardOutput;
-            //string output = reader.ReadToEnd();
-
-            // Write the redirected output to this application's window.
-            //Console.WriteLine(output);
-
-            VLSapp.WaitForExit();
-            VLSapp.Close();*/
             return;
-
         }
-
-
-        //                 BARRA DE NAVEGACION
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gitHubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Git gitform = new Git();
+            gitform.StartPosition = FormStartPosition.CenterScreen;
+            gitform.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        //DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG
+        // & TO DO
         private void activateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (activateToolStripMenuItem.CheckState == CheckState.Checked)
@@ -143,17 +100,18 @@ namespace VLSSharp
                 debug = false;
                 activateToolStripMenuItem.CheckState = CheckState.Unchecked;
             }
-            else {
+            else
+            {
                 debug = true;
                 activateToolStripMenuItem.CheckState = CheckState.Checked;
             }
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            About aboutform = new About();
-            aboutform.StartPosition = FormStartPosition.CenterScreen;
-            aboutform.Show();
+            Channels channelform = new Channels();
+            channelform.StartPosition = FormStartPosition.WindowsDefaultLocation;
+            channelform.Show();
         }
     }
 }

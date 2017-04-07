@@ -36,9 +36,12 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.svc_comboBox = new System.Windows.Forms.ComboBox();
             this.qlty_comboBox = new System.Windows.Forms.ComboBox();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainmenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +63,7 @@
             this.mainmenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.programToolStripMenuItem,
             this.debugToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem});
             resources.ApplyResources(this.mainmenu, "mainmenu");
             this.mainmenu.Name = "mainmenu";
             // 
@@ -80,7 +83,8 @@
             // debugToolStripMenuItem
             // 
             this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.activateToolStripMenuItem});
+            this.activateToolStripMenuItem,
+            this.preferencesToolStripMenuItem});
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
             resources.ApplyResources(this.debugToolStripMenuItem, "debugToolStripMenuItem");
             // 
@@ -89,6 +93,21 @@
             this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
             resources.ApplyResources(this.activateToolStripMenuItem, "activateToolStripMenuItem");
             this.activateToolStripMenuItem.Click += new System.EventHandler(this.activateToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gitHubToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
+            // gitHubToolStripMenuItem
+            // 
+            this.gitHubToolStripMenuItem.Name = "gitHubToolStripMenuItem";
+            resources.ApplyResources(this.gitHubToolStripMenuItem, "gitHubToolStripMenuItem");
+            this.gitHubToolStripMenuItem.Click += new System.EventHandler(this.gitHubToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -115,6 +134,12 @@
             this.qlty_comboBox.Name = "qlty_comboBox";
             this.qlty_comboBox.SelectedIndexChanged += new System.EventHandler(this.qlty_comboBox_SelectedIndexChanged);
             // 
+            // preferencesToolStripMenuItem
+            // 
+            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            resources.ApplyResources(this.preferencesToolStripMenuItem, "preferencesToolStripMenuItem");
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
+            // 
             // VLS
             // 
             resources.ApplyResources(this, "$this");
@@ -127,7 +152,7 @@
             this.MainMenuStrip = this.mainmenu;
             this.MaximizeBox = false;
             this.Name = "VLS";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.VLS_Load);
             this.mainmenu.ResumeLayout(false);
             this.mainmenu.PerformLayout();
             this.ResumeLayout(false);
@@ -143,10 +168,13 @@
         private System.Windows.Forms.ToolStripMenuItem programToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ComboBox svc_comboBox;
         private System.Windows.Forms.ComboBox qlty_comboBox;
+        private System.Windows.Forms.ToolStripMenuItem gitHubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
     }
 }
 
