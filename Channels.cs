@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace VLSSharp
@@ -10,46 +9,28 @@ namespace VLSSharp
         public Channels()
         {
             InitializeComponent();
+
         }
 
-        private string channels = ".\\channels.vls";
-        private string[] rawList;
-        private string[] list;
-        private string selected;
+        VLS vls = new VLS();
+
+        private string channels = ".\\channels.vls"; //File path
+        private string[] rawList; // Raw data from channels.vls 
+        private string[] list; // Only 1 line of Rawlist ready to be processed in ListView
         private int lineCount;
-
-        
-        
-        
-
-
-        /*private void channelList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selected = channelList.GetItemText(channelList.SelectedItem);
-            File.AppendAllText(".\\log.txt", selected);
-        }
-
-        private void channelList_DoubleClick(object sender, EventArgs e)
-        {
-            if (channelList.SelectedItem != null)
-            {
-                VLS vls = new VLS();
-                vls.launchVLS(channelList.SelectedItem.ToString(),VLS.qlty);
-            }
-        }*/
 
         private void Channels_Load(object sender, EventArgs e)
         {
             loadPrefs();
         }
 
-        private void loadPrefs()
+        public void loadPrefs()
         {
             try { lineCount = File.ReadAllLines(channels).Length; }
             catch (IOException)
             {
                 MessageBox.Show("File not found, a new channels.vls file will be created.");
-                File.WriteAllText(channels, "esl_csgo,0,best");
+                File.WriteAllText(channels, "esl_csgo,0,best\n");
                 return;
             }
 
@@ -64,7 +45,8 @@ namespace VLSSharp
                 listView.Items.Add(lvi);
             }
         }
-        /*private void readList()
+
+        private void savePrefs()
         {
             try
             {
@@ -72,24 +54,62 @@ namespace VLSSharp
             }
             catch (IOException)
             {
-                MessageBox.Show("File not found, a new channels.vls file will be created.");
-                File.WriteAllText(channels, "NewChannel");
-                list = File.ReadAllLines(channels);
-                channelList.Items.Insert(0,list[0]);
+                MessageBox.Show("Could not save preferences");
                 return;
             }
+            string[] s = new string[listView.Items.Count];
 
-            list = File.ReadAllLines(channels);
-
-            for (int i = 0; i < lineCount; i++)
+            for (int i = 0; i < listView.Items.Count; i++)
             {
-                channelList.Items.Insert(i, list[i]);
+                s[i] = listView.Items[i].SubItems[0].Text + "," + listView.Items[i].SubItems[1].Text + "," + listView.Items[i].SubItems[2].Text ;
             }
-        }*/
+            File.WriteAllLines(channels, s);
+        }
+
+        public void addToListView(string url, int svc, string qlty)
+        {
+            loadPrefs();
+            ListViewItem lvi = new ListViewItem(url);
+            lvi.SubItems.Add(svc.ToString());
+            lvi.SubItems.Add(qlty);
+            listView.Items.Add(lvi);
+            savePrefs();
+        }
 
         private void Channels_Closed(object sender, EventArgs e)
         {
             //File.WriteAllLines(channels, list);
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            Channels_AddBtn addBtn = new Channels_AddBtn();
+            addBtn.Show();
+        }
+
+        private void remBtn_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView.SelectedItems)
+            {
+                listView.Items.Remove(item);
+            }
+
+            savePrefs();
+        }
+
+        private void listView_ItemActivate(Object sender, EventArgs e)
+        {
+            try
+            {
+                string url = listView.SelectedItems[0].Text;
+                int svc = Convert.ToInt32(listView.SelectedItems[0].SubItems[1].Text);
+                string qlty = listView.SelectedItems[0].SubItems[2].Text;
+                vls.launchVLS(url, svc, qlty);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Select one item from the list to launch","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
         }
     }
 }

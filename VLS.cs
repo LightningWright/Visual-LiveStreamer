@@ -22,7 +22,7 @@ namespace VLSSharp
 
         }
 
-        public static string url;
+        public string url;
         public static int svc;
         public static string qlty;
         public static bool debug = false;

@@ -45,6 +45,7 @@
             this.addBtn.TabIndex = 1;
             this.addBtn.Text = "+";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // remBtn
             // 
@@ -54,9 +55,12 @@
             this.remBtn.TabIndex = 2;
             this.remBtn.Text = "-";
             this.remBtn.UseVisualStyleBackColor = true;
+            this.remBtn.Click += new System.EventHandler(this.remBtn_Click);
+            
             // 
             // listView
             // 
+            this.listView.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col1,
             this.col2,
@@ -67,6 +71,7 @@
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.ItemActivate += new System.EventHandler(this.listView_ItemActivate);
             // 
             // col1
             // 
